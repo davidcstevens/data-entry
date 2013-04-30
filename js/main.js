@@ -1,21 +1,22 @@
 require(["jquery","vendor/modernizr-2.6.2.min","plugins","navigation","vendor/doT.min"], function($) {
     $(function() {
+		var doT = require("vendor/doT.min");
         //
-    });
-});
 
 var def = {
-	frame: document.getElementById('dot-frame').text,
-	image: document.getElementById('dot-image').text,
-	form: document.getElementById('dot-form').text
+	frame: $('#dot-frame').html,
+	read: $('#dot-read').html,
+	form: $('#dot-form').html
 };
 var data = {
-	title: "My title",
-	name: "My name"
+	src: "testsrc",
+	name: "testname"
 };
 
-var pagefn = doT.template(document.getElementById('pagetmpl').text, undefined, def);
-document.getElementById('content').innerHTML = pagefn(data);
+var pagefn = doT.template($('#dot-frame').html, undefined, def);
+$('.main').append(pagefn(data));
 
-pagefn = doT.template(document.getElementById('pagetmplwithcustomizableheader').text, undefined, def);
-document.getElementById('contentcustom').innerHTML = pagefn(data);
+// pagefn = doT.template(document.getElementById('pagetmplwithcustomizableheader').text, undefined, def);
+// document.getElementById('contentcustom').innerHTML = pagefn(data);
+    });
+});
