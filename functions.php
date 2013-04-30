@@ -1,0 +1,5 @@
+<?php // functions
+
+getTemplates() {
+	
+}
