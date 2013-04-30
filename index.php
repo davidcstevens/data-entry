@@ -14,7 +14,9 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+        <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -22,12 +24,15 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div role="main" class="main">
+            <p>Hello world! This is HTML5 Boilerplate.</p>
+            <button class="next">Next</button>
+        </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/main.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
