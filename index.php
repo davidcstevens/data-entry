@@ -1,3 +1,4 @@
+<?php include("functions.php"); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -18,8 +19,9 @@
         <script data-main="js/main" src="js/require-jquery.js"></script>
         <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
     </head>
+    <?php echo getTemplates() ?>
     <body>
-        <!--[if lt IE 7]>
+        <!--[if lte IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
