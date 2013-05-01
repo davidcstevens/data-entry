@@ -17,7 +17,33 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <script data-main="js/main" src="js/require-jquery.js"></script>
+        <script  type="text/javascript" src="js/vendor/doT.min.js"></script>
         <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
+
+        <script id="headertmpl" type="text/x-dot-template">
+            <h1>{{=it.title}}</h1>
+        </script>
+
+        <script id="pagetmpl" type="text/x-dot-template">
+            <h2>Here is the page using a header template</h2>
+            {{#def.header}}
+            {{=it.name}}
+        </script>
+
+        <script id="customizableheadertmpl" type="text/x-dot-template">
+             {{#def.header}}
+             {{#def.mycustominjectionintoheader || ''}}
+         </script>
+
+        <script id="pagetmplwithcustomizableheader" type="text/x-dot-template">
+            <h2>Here is the page with customized header template</h2>
+            {{##def.mycustominjectionintoheader:
+                <div>{{=it.title}} is not {{=it.name}}</div>
+            #}}
+            {{#def.customheader}}
+            {{=it.name}}
+        </script>
+
     </head>
     <?php echo getTemplates() ?>
     <body>
@@ -26,7 +52,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div role="main" class="main">
+        <div role="main" class="main" id="main">
             <p>Hello world! This is HTML5 Boilerplate.</p>
             <button class="next">Next</button>
         </div>
@@ -35,6 +61,24 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>-->
+
+        <script type="text/javascript">
+            var def = {
+                header: document.getElementById('headertmpl').text,
+                customheader: document.getElementById('customizableheadertmpl').text
+            };
+            var data = {
+                title: "My title",
+                name: "My name"
+            };
+
+            var pagefn = doT.template(document.getElementById('pagetmpl').text, undefined, def);
+            document.getElementById('main').innerHTML = pagefn(data);
+
+            pagefn = doT.template(document.getElementById('pagetmplwithcustomizableheader').text, undefined, def);
+            document.getElementById('main').innerHTML = pagefn(data);
+
+        </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
